@@ -7,17 +7,75 @@ This folder contains five Jupyter notebooks for a practical five-day Prompt Engi
 
 ---
 
-## 1. Course contents and learning path
+## 1. Course index — prompting topics covered
 
-| Notebook | Main subject | What students should be able to do |
+This index gives a quick view of the prompting concepts and LangChain skills covered across the five notebooks.
+
+### Day 1 — Prompting Fundamentals
+- What prompt engineering is and why prompt quality matters
+- Improving vague prompts and making instructions specific
+- Zero-shot, one-shot, and few-shot prompting
+- Prompt structure: role, task, context, input, constraints, and output format
+- Prompt anatomy and writing clear instructions
+- Delimiters for separating instructions from user-provided data
+- Negative instructions, boundary conditions, and fallback directions
+- Prompt quality checklist and hands-on practice
+
+### Day 2 — Reusable PromptTemplate
+- Why reusable prompt templates are useful
+- Creating templates with `PromptTemplate.from_template()`
+- Single and multiple input variables
+- Formatting prompts with `format()` and `format_prompt()`
+- Reusing one template with different input data
+- Required input variables and input validation
+- Partial variables for fixed role, tone, or context
+- Escaping literal curly braces and avoiding common template mistakes
+
+### Day 3 — ChatPromptTemplate and Conversation Context
+- Building chat prompts with `ChatPromptTemplate`
+- System, human, and AI message roles
+- Creating prompts with multiple messages
+- Using `MessagesPlaceholder` to insert conversation history
+- Building reusable chat functions and checking inputs
+- Passing conversation history as context
+- Managing and limiting history windows
+- Understanding the difference between supplied chat history and permanent memory
+
+### Day 4 — Advanced Prompting Techniques
+- `FewShotPromptTemplate` and example-based prompting
+- Example selection with `LengthBasedExampleSelector`
+- Semantic-similarity example selection (optional extension)
+- Role-based, contextual, and constraint-based prompting
+- Stepwise prompting and ReAct prompting concepts
+- Task decomposition for multi-stage problems
+- Self-review, critique, and revise workflows
+- Prompt-injection awareness and trusted/untrusted input boundaries
+- Prompt evaluation using repeatable criteria and test examples
+
+### Day 5 — Output Parsers, LCEL, and Prompt Chains
+- Turning model responses into plain text, JSON, lists, XML, or typed objects
+- `StrOutputParser`, `JsonOutputParser`, `PydanticOutputParser`, and list/XML parsers
+- Pydantic schemas, field constraints, and type validation
+- `parse()` versus chain `invoke()`
+- Native structured output versus parser-based formatting
+- LCEL fundamentals and the `prompt | model | parser` pattern
+- Prompt chaining and sequential workflows
+- Runnable components: `RunnableSequence`, `RunnableParallel`, `RunnablePassthrough`, `RunnableLambda`, and `RunnableBranch`
+- `.assign()`, `itemgetter`, fallbacks, and retries
+- `invoke()`, `batch()`, `stream()`, and async execution methods
+- Parser/model error handling, chain debugging, and an IT support ticket workflow
+
+### Quick notebook map
+
+| Notebook | Main focus | Main outcome |
 |---|---|---|
-| `Day_1_Prompting_Fundamentals.ipynb` | Prompt engineering fundamentals | Write clear prompts with role, task, context, constraints, examples, and output format |
-| `Day_2_PromptTemplate.ipynb` | PromptTemplate | Create reusable templates, pass variables, validate inputs, and use partial variables |
-| `Day_3_ChatPromptTemplate.ipynb` | ChatPromptTemplate | Separate system and human messages and insert supplied chat history |
-| `Day_4_Advanced_Prompting.ipynb` | Advanced prompting | Decompose tasks, review drafts, evaluate prompts, and handle untrusted input safely |
-| `Day_5_Output_Parsers_LCEL.ipynb` | Output parsers and LCEL | Convert model output into useful structures and compose runnable chains |
+| `Day_1_Prompting_Fundamentals.ipynb` | Prompting basics and prompt design | Write clear, structured prompts |
+| `Day_2_PromptTemplate.ipynb` | Reusable text prompts | Build and validate variable-based templates |
+| `Day_3_ChatPromptTemplate.ipynb` | Chat messages and history | Build conversational prompts with context |
+| `Day_4_Advanced_Prompting.ipynb` | Advanced prompt strategies | Design multi-step, example-driven, evaluated prompts |
+| `Day_5_Output_Parsers_LCEL.ipynb` | Parsing and chain composition | Build structured, testable LangChain workflows |
 
-Recommended teaching sequence: fundamentals → reusable templates → chat messages/history → advanced prompt workflows → output parsing and LCEL.
+**Recommended learning path:** Prompt fundamentals → reusable templates → chat prompts and history → advanced prompting → output parsers and LCEL chains.
 
 ---
 
@@ -187,7 +245,7 @@ Use a string when a person reads the result. Use JSON when flexible fields are n
 
 1. Install the packages using the notebook's setup cell.
 2. Restart the Jupyter kernel if installation changed the environment.
-3. Enter the Groq API key using the notebook's secure `getpass` cell.
+3. Create a local `.env` file from `.env.example` and set `GROQ_API_KEY`; the notebooks load it with `python-dotenv`.
 4. Confirm `MODEL_NAME` is available in your Groq account.
 5. Run each notebook from top to bottom.
 6. If an error occurs, inspect the first failing cell and verify package versions, credentials, model availability, and provider limits.
