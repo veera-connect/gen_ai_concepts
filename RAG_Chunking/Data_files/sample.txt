@@ -1,0 +1,14 @@
+LangChain is a framework for building applications with language models.
+It provides tools that help developers connect language models with data and external services.
+
+Document loading is the first step in many RAG applications.
+A loader reads files such as PDF, TXT, CSV, JSON, and Word documents.
+After loading, the content is usually split into smaller chunks.
+
+Chunking is important because language models have context limits.
+Smaller chunks can also help a retriever find the most relevant information.
+Chunk overlap keeps some text from the previous chunk so that context is not lost.
+
+Python is a beginner-friendly programming language.
+It is used in automation, web development, data science, and artificial intelligence.
+A Python function is a reusable block of code.
